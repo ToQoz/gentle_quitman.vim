@@ -9,8 +9,8 @@ endif
 let loaded_gentle_quitmen = 1
 
 
-if !exists(':Q')
-  command Q :call <SID>gentle_quitman()
+if !exists(':GQ')
+  command GQ :call <SID>gentle_quitman()
 endif
 
 function! <SID>gentle_quitman()

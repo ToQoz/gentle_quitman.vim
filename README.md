@@ -12,9 +12,9 @@ Add followings to your vimrc.
 
 ```
 call altercmd#load()
-AlterCommand q Q
-AlterCommand Q q
+AlterCommand q GQ
+AlterCommand GQ q
 
-AlterCommand quit Q
-AlterCommand q quit
+AlterCommand quit GQ
+AlterCommand GQ quit
 ```
