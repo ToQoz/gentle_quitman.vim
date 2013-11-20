@@ -19,7 +19,7 @@ function! <SID>gentle_quitman()
 
   if window_counter == 1
     let a = input("Really quit last window? [n/Y] ")
-    if a == "y"
+    if a == "Y"
       q
     endif
   else
