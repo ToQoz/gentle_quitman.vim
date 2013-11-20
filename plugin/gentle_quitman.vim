@@ -10,17 +10,18 @@ let loaded_gentle_quitmen = 1
 
 
 if !exists(':GQ')
-  command GQ :call <SID>gentle_quitman()
+  " -bang allow !
+  command -bang GQ :call <SID>gentle_quitman("<bang>")
 endif
 
-function! <SID>gentle_quitman()
+function! <SID>gentle_quitman(bang)
   let window_counter = 0
   windo let window_counter = window_counter + 1
 
   if window_counter == 1
     let a = input("Really quit last window? [n/Y] ")
     if a == "Y"
-      q
+      exec "q" . a:bang
     endif
   else
     q
