@@ -1,6 +1,6 @@
 # gentle_quitman.vim
 
-This plugin provides :GQ command. it confirm before quit last window.
+This plugin provides :GQ and :GWQ command. it confirm before quit last window.
 
 ## Tips. If you want to override default q/quit
 
@@ -19,4 +19,7 @@ AlterCommand GQ q
 
 AlterCommand quit GQ
 AlterCommand GQ quit
+
+AlterCommand wq GWQ
+AlterCommand GWQ wq
 ```

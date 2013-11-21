@@ -14,18 +14,31 @@ if !exists(':GQ')
   command -bang GQ :call <SID>gentle_quitman("<bang>")
 endif
 
+if !exists(':GWQ')
+  command -bang -nargs=* GWQ :w <args> | :call <SID>gentle_quitman("<bang>")
+endif
+
 function! <SID>gentle_quitman(bang)
+  let a = <SID>is_permitted_quit()
+  if a == 1
+    exec "q" . a:bang
+  endif
+endfunction
+
+function! <SID>is_permitted_quit()
   let window_counter = 0
   windo let window_counter = window_counter + 1
 
   if window_counter == 1
     let a = input("Really quit last window? [n/Y] ")
     if a == "Y"
-      exec "q" . a:bang
+      return 1
     endif
   else
-    q
+    return 1
   endif
+
+  return 0
 endfunction
 
 " http://nanasi.jp/articles/code/stdplugin/save-cpo.html {{{
