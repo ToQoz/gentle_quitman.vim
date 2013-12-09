@@ -26,10 +26,7 @@ function! <SID>gentle_quitman(bang)
 endfunction
 
 function! <SID>is_permitted_quit()
-  let window_counter = 0
-  windo let window_counter = window_counter + 1
-
-  if window_counter == 1
+  if winnr('$') == 1
     let a = input("Really quit last window? [n/Y] ")
     if a == "Y"
       return 1
